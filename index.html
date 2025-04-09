@@ -7,11 +7,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+<script>
+    function showSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.style.display = 'flex';
+    }
+
+    function hideSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.style.display = 'none';
+    }
+</script>
+
 <body>
     <!-- navbar and sidebar -->
     <nav id="navigation">
         <ul class="sidebar">
-            <li><a href="#">Home</a></li>
+
+            <li>
+                <a href="#">Home</a>
+                <a onclick="hideSidebar()" href="#"><img src="Images/Icons/menu_icon.svg"></a>
+            </li>
             <li><a href="#">About Me</a></li>
             <li><a href="#">Projects</a></li>
             <li><a href="#">Links</a></li>
@@ -21,6 +37,7 @@
             <li><a href="#">About Me</a></li>
             <li><a href="#">Projects</a></li>
             <li><a href="#">Links</a></li>
+            <li onclick="showSidebar()"><a href="#"><img src="Images/Icons/menu_icon.svg"></a></li>
         </ul>
     </nav>
 

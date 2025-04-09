@@ -40,7 +40,7 @@ nav ul {
 
 /* defines heigiht of parents */
 nav li {
-    height: 50px;
+    height: 7vh;
 }
 
 nav a {
@@ -60,11 +60,12 @@ nav a:hover {
 /* only for header */
 .header li:first-child  {
     margin-right: auto;
+
 }
 
 .sidebar {
     /* alignment */
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: flex-start;
 
@@ -72,15 +73,19 @@ nav a:hover {
     top: 0;
     right: 0;
     height: 100vh;
-    width: 250px;
+    width: 15vw;
     z-index: 99;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.3);
     box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
 }
 .sidebar li {
     width: 100%;
 }
-.sidebar a {
-    width: 100%;
+
+.sidebar li:first-child {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
+
