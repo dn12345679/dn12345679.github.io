@@ -83,9 +83,25 @@ nav a:hover {
     width: 100%;
 }
 
-.sidebar li:first-child {
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
+
+@media(max-width: 800px) {
+    .limit-screen {
+        display: none;
+    }
+}
+
+/* animation for rotating icon */
+
+#menu_icon {
+    animation: none;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
 }
 
