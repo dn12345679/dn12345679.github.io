@@ -40,7 +40,7 @@ html {
 body {
     min-height: 100vh;
     /* bg */
-    background-image: url(Images/Background/bg.svg);
+    background-color: white;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -86,7 +86,10 @@ nav a:hover {
 /* only for header */
 .header li:first-child  {
     margin-right: auto;
-
+}
+.header {
+    position: fixed;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -181,8 +184,9 @@ nav a:hover {
 .section-content-text {
     margin: 5vh;
     width: 25%;
-    background-color: burlywood;
+    background-color: white;
 
+    border-radius: 10px;
     border-color: black;
     border-style: solid;
     border-width: 3px;
@@ -191,5 +195,26 @@ nav a:hover {
 
 .section-content-text p {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: large;
+    font-size: 25px;
+    border-right: .15em solid orange;
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
 }
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
+
+
+  .intro-section {
+    min-height: 100vh;
+  }

@@ -62,14 +62,24 @@
         paints.forEach(paint => {
             paint.classList.toggle('unload');
         });
+        
+        // delete elements to save space
+        const fadingElements = document.querySelectorAll('.splat.unload');
+        fadingElements.forEach((splat) => {
+            splat.addEventListener('transitionend', () => {
+                if (parseFloat(getComputedStyle(splat).opacity) === 0) {
+                splat.remove(); 
+                }
+            });
+        });
     }
     
     async function timedSplats() {
-        await delay(1000);
+        await delay(500);
         splatterEffect(30);
-        await delay(1000);
+        await delay(250);
         splatterEffect(30);
-        await delay(1000);
+        await delay(250);
         splatterEffect(30);
         await delay(500);
 
@@ -114,8 +124,12 @@
     
     
     
-    <div id="base">
+    <div id="body">
         <div>
+            <section class="intro-section">
+
+            </section>
+
             <section class="about-me">
                 <header class="section-title">
                     <div class="section-title-label">
@@ -130,15 +144,13 @@
                             I am a student at University of Washington, Seattle and studied ACMS: Data Science and Statistics<br>
                             with an interest in applying topics in mathematics to real-world fields of interest. During my time at 
                             as an undergraduate, I have developed an interest and passion for linguistics (computational linguistics), 
-                            applied mathematics, and game development (see my links below).
+                            applied mathematics, and game development. <br>
+                            Attached below is my general resume.
                             
                         </p>
                         
                     </div>
                 </div>
-            </section>
-            <section>
-
             </section>
         </div>
     </div>
