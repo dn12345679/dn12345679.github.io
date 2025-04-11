@@ -3,6 +3,18 @@ html {
     scroll-behavior: smooth;
 }
 
+.paintCanvas {
+    min-height: 90vh;
+    min-width: 100vw;
+    position: absolute;
+    background-color: white;
+    transition: 4.0s cubic-bezier(.36,-0.01,0,.77);
+}
+.paintCanvas.fade {
+    background-color: rgba(1, 1, 1, 0);
+    
+}
+
 
 /* remove default settings*/
 * {

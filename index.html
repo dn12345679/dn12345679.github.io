@@ -11,15 +11,78 @@
 
 
     function toggleSidebar() {
+        
         const sidebar = document.querySelector('.sidebar');
         const icon = document.querySelectorAll('#menu_icon');
 
         sidebar.classList.toggle('open'); // trigger animation
-        
     }
+
+    function resizeCanvas() {
+        const canvas = document.querySelector('.paintCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    function splatterEffect(count) {
+        const canvas = document.querySelector('.paintCanvas');
+        const ctx = canvas.getContext('2d');
+        
+
+        for (var sp = 0; sp < count; sp++) {
+
+
+            const angle = Math.random() * 2 * Math.PI;
+            var size = Math.random() * window.innerWidth * 0.01;
+            if (sp % 10 == 0) {
+                size = window.innerWidth * 0.1;
+            }
+
+            ctx.beginPath();
+            ctx.fillStyle = getRandomColor();
+            ctx.arc(Math.abs(Math.random() * window.innerWidth + Math.cos(angle) * Math.random() * window.innerWidth), 
+                    Math.abs(Math.random() * window.innerHeight + Math.sin(angle) * Math.random() * window.innerHeight)  
+                    , size, 0, 2 * Math.PI);
+            ctx.fill();
+
+
+        }
+    }
+    function getRandomColor() {
+        const colors = ['#ff3838', '#1e90ff', '#32cd32', '#ffbf00', '#e91e63'];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }   
+
+    
+    async function timedSplats() {
+        await delay(1500);
+        splatterEffect(80);
+        await delay(1000);
+        splatterEffect(80);
+        await delay(1000);
+        splatterEffect(80);
+        await delay(500);
+        const canvas = document.querySelector('.paintCanvas');
+        canvas.classList.toggle('fade'); 
+    }
+    function delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    
+    
+    window.onload = function() {
+        resizeCanvas();
+        timedSplats()
+    };
 </script>
 
 <body>
+    <!-- intro -->
+    <canvas style="z-index: 999;" class="paintCanvas"></canvas>
+
+
     <!-- navbar and sidebar -->
     <nav id="navigation">
         <ul class="sidebar">
@@ -38,7 +101,9 @@
             <li><a onclick="toggleSidebar()" href ="#"><img id="menu_icon" src="Images/Icons/menu_icon.svg"></a></li>
         </ul>
     </nav>
-
+    
+    
+    
     <div id="base">
         <div>
             <section class="about-me">
@@ -56,7 +121,9 @@
                             with an interest in applying topics in mathematics to real-world fields of interest. During my time at 
                             as an undergraduate, I have developed an interest and passion for linguistics (computational linguistics), 
                             applied mathematics, and game development (see my links below).
+                            
                         </p>
+                        
                     </div>
                 </div>
             </section>
@@ -65,6 +132,8 @@
             </section>
         </div>
     </div>
+    
+    
     
 </body>
 </html>
