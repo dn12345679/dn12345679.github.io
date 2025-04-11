@@ -85,6 +85,7 @@
 
 
         fadeSplatterEffect();
+        window.removeEventListener("wheel", e => e.preventDefault(), {passive: true});  
     }
     function delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -93,6 +94,7 @@
     
     
     window.onload = function() {
+        window.addEventListener("wheel", e => e.preventDefault(), {passive: false});
         resizeCanvas();
         timedSplats()
     };

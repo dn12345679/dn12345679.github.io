@@ -57,7 +57,7 @@ nav {
 }
 
 /* navigation bar list */
-nav ul {
+nav ul { 
     width: 100%;
     list-style: none; /* no bullet points */
     display: flex;
