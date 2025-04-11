@@ -74,7 +74,15 @@
         });
     }
     
+
+
     async function timedSplats() {
+        /* lock wheel */
+        const wheelListener = (e) => {
+            e.preventDefault();
+        }
+        
+        window.addEventListener("wheel", wheelListener, {passive: false});
         await delay(500);
         splatterEffect(30);
         await delay(250);
@@ -85,7 +93,9 @@
 
 
         fadeSplatterEffect();
-        window.removeEventListener("wheel", e => e.preventDefault(), {passive: true});  
+
+        await delay(1300);
+        window.removeEventListener("wheel", wheelListener);  
     }
     function delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -94,7 +104,7 @@
     
     
     window.onload = function() {
-        window.addEventListener("wheel", e => e.preventDefault(), {passive: false});
+        
         resizeCanvas();
         timedSplats()
     };
