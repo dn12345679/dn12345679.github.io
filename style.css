@@ -3,8 +3,10 @@ html {
     scroll-behavior: smooth;
 }
 
+
+/* intro */
 .paintCanvas {
-    min-height: 90vh;
+    min-height: 100vh;
     min-width: 100vw;
     position: absolute;
     background-color: white;
@@ -12,9 +14,21 @@ html {
 }
 .paintCanvas.fade {
     background-color: rgba(1, 1, 1, 0);
-    
+    pointer-events: none;
+}
+.splat {
+    opacity: 1;
+    position: absolute;
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+    transition: 1.3s cubic-bezier(.36,-0.01,0,.77);
 }
 
+.splat.unload {
+    opacity: 0;
+    pointer-events: none;
+  }
 
 /* remove default settings*/
 * {
