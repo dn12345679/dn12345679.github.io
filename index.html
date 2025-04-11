@@ -8,24 +8,14 @@
 </head>
 
 <script>
-    function showSidebar() {
+
+
+    function toggleSidebar() {
         const sidebar = document.querySelector('.sidebar');
         const icon = document.querySelectorAll('#menu_icon');
-        sidebar.style.display = 'flex';
 
-        icon.forEach((menuicon) => {
-            menuicon.style.animation = 'rotation 0.3s linear forwards';
-        });
-    }
-
-    function hideSidebar() {
-        const sidebar = document.querySelector('.sidebar');
-        const icon = document.querySelectorAll('#menu_icon');
-        sidebar.style.display = 'none';
-
-        icon.forEach((menuicon) => {
-            menuicon.style.animation = 'rotation 0.8s linear reverse forwards';
-        });
+        sidebar.classList.toggle('open'); // trigger animation
+        
     }
 </script>
 
@@ -34,7 +24,7 @@
     <nav id="navigation">
         <ul class="sidebar">
             
-            <li><a onclick="hideSidebar()" href="#"><img id="menu_icon" src="Images/Icons/menu_icon.svg"></a></li>
+            <li><a onclick="toggleSidebar()" href="#"><img id="menu_icon" src="Images/Icons/menu_icon.svg"></a></li>
             <li><a href="#">Home</a></li>
             <li><a href="#">About Me</a></li>
             <li><a href="#">Projects</a></li>
@@ -45,11 +35,36 @@
             <li><a class="limit-screen" href="#">About Me</a></li>
             <li><a class="limit-screen" href="#">Projects</a></li>
             <li><a class="limit-screen" href="#">Links</a></li>
-            <li onclick="showSidebar()"><a href ="#"><img id="menu_icon" src="Images/Icons/menu_icon.svg"></a></li>
+            <li><a onclick="toggleSidebar()" href ="#"><img id="menu_icon" src="Images/Icons/menu_icon.svg"></a></li>
         </ul>
     </nav>
 
+    <div id="base">
+        <div>
+            <section class="about-me">
+                <header class="section-title">
+                    <div class="section-title-label">
+                        <img style="width:3vw; height:3vh;" src="Images\Icons\waving-hand.svg"/>
+                        <p>About Me</p>
+                    </div>
+                </header>
+                <div class="section-content">
+                    <div class="section-content-text">
+                        <p>
+                            Hello, my name is Dylan Nguyen. <br>
+                            I am a student at University of Washington, Seattle and studied ACMS: Data Science and Statistics<br>
+                            with an interest in applying topics in mathematics to real-world fields of interest. During my time at 
+                            as an undergraduate, I have developed an interest and passion for linguistics (computational linguistics), 
+                            applied mathematics, and game development (see my links below).
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section>
 
+            </section>
+        </div>
+    </div>
     
 </body>
 </html>
