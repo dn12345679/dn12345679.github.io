@@ -38,9 +38,10 @@ html {
 
 /* set content to viewport height */
 body {
+    overflow-x: hidden;
     min-height: 100vh;
     /* bg */
-    background-color: white;
+    background-color: cornsilk;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -53,11 +54,13 @@ body {
 
 nav {
     background-color: white;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    z-index: 99;
 }
 
 /* navigation bar list */
 nav ul { 
+    z-index: inherit;
     width: 100%;
     list-style: none; /* no bullet points */
     display: flex;
@@ -89,7 +92,8 @@ nav a:hover {
 }
 .header {
     position: fixed;
-    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(1, 1, 1, 0.3);
 }
 
 
@@ -157,28 +161,41 @@ nav a:hover {
 
 /* section title styles */
 .section-title {
-    background-color: #d59ee5;
-    display: inline-block;
-
+    background-color: tan;
+    display: flex;
     padding: 10px;
-    margin-left: 2vw;
+    z-index: 0;
+    margin: 0 auto;
+    width: fit-content;
 
     border-style: solid solid none solid;
     border-width: 5px;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
+
 }
+/* text */
 .section-title-label {
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding-right: 1vw;
+    font-size: 30px;
 }
 
 .section-content {
-    background-color: #d59ee5;
-    border-top-style: solid;
+    background-color: tan;
+    border-style: solid;
+
+    border-radius: 10px;
     border-width: 5px;  
     padding-bottom: 5vh;
+
+    height: 50vh;
+    width: 70vw;
+
+    margin: 0 auto;
+
 }
 
 .section-content-text {
@@ -195,26 +212,73 @@ nav a:hover {
 
 .section-content-text p {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 25px;
-    border-right: .15em solid orange;
+    font-size: 30px;
+
+}
+
+
+
+
+/* main page */
+.intro-section {
+    min-height: 104.5vh;
+    
+    z-index: 0;
+    align-content: center;
+    justify-content: center;
+}
+
+.intro-section header div p {
+    text-align: center;
+    padding: 20px;
+    max-width: 50vw;
+
+    font-size: 200px;
     animation: 
         typing 3.5s steps(40, end),
         blink-caret .75s step-end infinite;
 }
 
-/* The typing effect */
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-  }
-  
-  /* The typewriter cursor effect */
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: orange; }
-  }
+/* these are the particles */
+.parallax-wrap span{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    background: red;
+}
 
+.intro-section-title-text {
+    position:sticky;
+    z-index: 1;
+}
 
-  .intro-section {
+/* about me  */
+
+.about-me {
     min-height: 100vh;
-  }
+    
+}
+
+.content-body {
+    min-width: 100vw;
+    align-content: center;
+    justify-content: center;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* footer */
+
+.bottom {
+    margin-top: 200px;
+    min-width: 100vw;
+    min-height: 300px;
+    background-color: black;
+}
+
+
+

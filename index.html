@@ -16,13 +16,13 @@
 
         sidebar.classList.toggle('open'); // trigger animation
     }
-
+    // IMPORTANT: resize the "canvas" for the splat effect
     function resizeCanvas() {
         const canvas = document.querySelector('.paintCanvas');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
     }
-
+    // creates the splats
     function splatterEffect(count) {
         const canvas = document.querySelector('.paintCanvas');
         
@@ -49,11 +49,12 @@
 
         }
     }
+    // returns a random color in a set of predetermined colors
     function getRandomColor() {
         const colors = ['#ff3838', '#1e90ff', '#32cd32', '#ffbf00', '#e91e63'];
         return colors[Math.floor(Math.random() * colors.length)];
     }   
-
+    // removes the splats
     function fadeSplatterEffect() {
         const paints = document.querySelectorAll('.splat');
         const canvas = document.querySelector('.paintCanvas');
@@ -75,7 +76,7 @@
     }
     
 
-
+    // timer for "splatter intro"
     async function timedSplats() {
         /* lock wheel */
         const wheelListener = (e) => {
@@ -102,9 +103,46 @@
     }
 
     
+    // adds particles for the parallax effect in the section mainpage
+    function addParticles(count) {
+        const pwrap = document.querySelector('.parallax-wrap');
+        for (let i = 0; i < count; i++) {
+            var p = document.createElement('span');
+            var sizex = Math.random() * window.innerWidth * 0.95;
+            var sizey = Math.random() * window.innerHeight * 0.8;
+            
+            p.setAttribute('value', (Math.random() * 2 - 1) * 20);
+            p.style.left = sizex + 'px';
+            p.style.top = sizey + 'px';
+            p.style.zIndex = Math.floor(Math.random() * 3); // random num between 0, 1, or 2
+            p.style.backgroundColor = getRandomColor();
+            pwrap.appendChild(p);
+        }
+    }
     
+    // https://dev.to/clementgaudiniere/create-a-parallax-effect-when-the-mouse-moves-3km0
+    document.addEventListener("mousemove", parallax); // paralax
+    function parallax(event) {
+        this.querySelectorAll('.parallax-wrap span').forEach((shift) => {
+            const position = shift.getAttribute("value");
+            const x = (window.innerWidth - event.pageX * position) / 90;
+            const y = (window.innerHeight - event.pageY * position) / 90;
+            shift.style.transform = `translateX(${x}px) translateY(${y}px)`; 
+        });
+    }
+
+    document.addEventListener("scroll", changeBG);
+    function changeBG(event) {
+        this.querySelector('body');
+        ( () => {
+            const scroll = window.scrollY;
+            body.style.backgroundColor = scroll > 100 ? "cornsilk" : "white";
+        })();
+    }
+
+
     window.onload = function() {
-        
+        addParticles(50);
         resizeCanvas();
         timedSplats()
     };
@@ -127,45 +165,77 @@
         </ul>
         <ul class="header">
             <li><a href="#">Home</a></li>
-            <li><a class="limit-screen" href="#">About Me</a></li>
+            <li><a class="limit-screen" href="#aboutme-page">About Me</a></li>
             <li><a class="limit-screen" href="#">Projects</a></li>
             <li><a class="limit-screen" href="#">Links</a></li>
             <li><a onclick="toggleSidebar()" href ="#"><img id="menu_icon" src="Images/Icons/menu_icon.svg"></a></li>
         </ul>
     </nav>
-    
-    
-    
     <div id="body">
         <div>
             <section class="intro-section">
-
-            </section>
-
-            <section class="about-me">
-                <header class="section-title">
-                    <div class="section-title-label">
-                        <img style="width:3vw; height:3vh;" src="Images\Icons\waving-hand.svg"/>
-                        <p>About Me</p>
+                <header>
+                    <div>
+                        <p class="intro-section-title-text">
+                            Hey! I'm Dylan!
+                        </p>
                     </div>
                 </header>
-                <div class="section-content">
-                    <div class="section-content-text">
-                        <p>
-                            Hello, my name is Dylan Nguyen. <br>
-                            I am a student at University of Washington, Seattle and studied ACMS: Data Science and Statistics<br>
-                            with an interest in applying topics in mathematics to real-world fields of interest. During my time at 
-                            as an undergraduate, I have developed an interest and passion for linguistics (computational linguistics), 
-                            applied mathematics, and game development. <br>
-                            Attached below is my general resume.
+                <div class="parallax-wrap"></div>
+            </section>
+            
+            <section class="content-body">
+                <section  class="about-me">
+                    <header id="aboutme-page" class="section-title">
+                        <div class="section-title-label">
+                            <img style="width:3vw; height:3vh;" src="Images\Icons\waving-hand.svg"/>
+                            <p>About Me</p>
+                        </div>
+                    </header>
+                    <div class="section-content">
+                        <div class="section-content-text">
+                            <p>
+                                Hello, my name is Dylan Nguyen. <br>
+                                I am a student at University of Washington, Seattle and studied ACMS: Data Science and Statistics
+                                with an interest in applying topics in mathematics to real-world fields. During my time at 
+                                as an undergraduate, I have developed an interest and passion for linguistics (computational linguistics), 
+                                applied mathematics, and game development. <br>
+                                Attached below is my general resume.
+                                
+                            </p>
                             
-                        </p>
-                        
+                        </div>
                     </div>
-                </div>
+                </section>
+    
+                <section class="projects">
+                    <header class="section-title">
+                        <div class="section-title-label">
+                            <img style="width:2vw;" src="Images\Icons\projects-icon.png"/>
+                            <p>Projects and Experience</p>
+                        </div>
+                    </header>     
+                    <div class="section-content">
+                        <div class="section-content-text">
+                            <p>
+                                Hello, my name is Dylan Nguyen. <br>
+                                I am a student at University of Washington, Seattle and studied ACMS: Data Science and Statistics
+                                with an interest in applying topics in mathematics to real-world fields. During my time at 
+                                as an undergraduate, I have developed an interest and passion for linguistics (computational linguistics), 
+                                applied mathematics, and game development. <br>
+                                Attached below is my general resume.
+                                
+                            </p>
+                            
+                        </div>
+                    </div>                           
+                </section>
             </section>
         </div>
     </div>
+    <footer class="bottom">
+
+    </footer>
     
     
     
