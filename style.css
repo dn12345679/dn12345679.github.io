@@ -50,6 +50,13 @@ body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.pages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 /* responsive navbar */
 
 nav {
@@ -65,6 +72,8 @@ nav ul {
     list-style: none; /* no bullet points */
     display: flex;
     justify-content: flex-end; /* right side */
+
+
 }
 
 /* defines heigiht of parents */
@@ -130,9 +139,7 @@ nav a:hover {
 
 
 @media(max-width: 800px) {
-    .limit-screen {
-        display: none;
-    }
+
 }
 /* rescale */
 .sidebar li {
@@ -165,13 +172,16 @@ nav a:hover {
     display: flex;
     padding: 10px;
     z-index: 0;
-    margin: 0 auto;
+    margin-top: 25vh; /* necessary for centering on pages, see .section-content 'height' */
+    
     width: fit-content;
 
     border-style: solid solid none solid;
     border-width: 5px;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
+
+    
 
 }
 /* text */
@@ -193,9 +203,7 @@ nav a:hover {
 
     height: 50vh;
     width: 70vw;
-
-    margin: 0 auto;
-
+    
 }
 
 .section-content-text {
@@ -220,7 +228,7 @@ nav a:hover {
 
 
 /* main page */
-.intro-section {
+#intro-section {
     min-height: 104.5vh;
     
     z-index: 0;
@@ -228,7 +236,7 @@ nav a:hover {
     justify-content: center;
 }
 
-.intro-section header div p {
+#intro-section header div p {
     text-align: center;
     padding: 20px;
     max-width: 50vw;
@@ -248,16 +256,16 @@ nav a:hover {
     background: red;
 }
 
-.intro-section-title-text {
+#intro-section-title-text {
     position:sticky;
     z-index: 1;
 }
 
-/* about me  */
+/* section title + content sibling  */
 
-.about-me {
+.section-page {
     min-height: 100vh;
-    
+    margin: auto; /* necessary for centering on pages, see .section-content 'height' */   
 }
 
 .content-body {
