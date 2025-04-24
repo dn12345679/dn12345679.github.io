@@ -161,15 +161,15 @@
             
             <li><a onclick="toggleSidebar()" href="#"><img id="menu_icon" src="Images/Icons/menu_icon.svg"></a></li>
             <li><a href="#">Home</a></li>
-            <li><a href="#">About Me</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Links</a></li>
+            <li><a href="#aboutme-page">About Me</a></li>
+            <li><a href="#projects-page">Projects</a></li>
+            <li><a href="#links-page">Links</a></li>
         </ul>
         <ul class="header">
             <li><a href="#">Home</a></li>
             <li><a class="limit-screen" href="#aboutme-page">About Me</a></li>
             <li><a class="limit-screen" href="#projects-page">Projects</a></li>
-            <li><a class="limit-screen" href="#">Links</a></li>
+            <li><a class="limit-screen" href="#links-page">Links</a></li>
             <li><a onclick="toggleSidebar()" href ="#"><img id="menu_icon" src="Images/Icons/menu_icon.svg"></a></li>
         </ul>
     </nav>
@@ -211,27 +211,41 @@
                     </div>
                 </section>
     
-                <section id="projects-page" class="section-page">
-                    <header class="section-title">
-                        <div class="section-title-label">
-                            <img style="width:2vw;" src="Images\Icons\projects-icon.png"/>
-                            <p>Projects and Experience</p>
+                <section id="projects-page" class="section-page">    
+                    <div class="project-slider-wrapper">
+                        <div class="project-slider">
+                            <img id="slide-1" src="Images\Projects\ChessAI.png" alt="Virtual Chess board"/>
+                            <img id="slide-2" src="Images\Projects\efluid1.png" alt="Fluid-like pixel movements"/>
                         </div>
-                    </header>     
-                    <div class="section-content">
-                        <div class="section-content-text">
-                            <p>
-                                
-                            </p>
-                            
+                        <div class="project-slider-nav">
+                            <a href="#slide-1"></a>
+                            <a href="#slide-2"></a>
                         </div>
-                    </div>                           
+                    </div>                      
                 </section>
             </section>
         </div>
     </div>
-    <footer class="bottom">
+    <footer id="links-page" class="bottom">
+        <div class="links">
+            <table>
+                <tr>
+                    <td>
+                        Github
+                    </td>
+                    <td>
+                        Itch.io
+                    </td>
+                    <td>
+                        Email
+                    </td>
+                    <td>
+                        LinkedIn
+                    </td>
+                </tr>
 
+            </table>
+        </div>
     </footer>
     
     

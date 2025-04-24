@@ -293,7 +293,24 @@ nav a:hover {
     z-index: inherit;
 }
 
-/* body */
+/* slider */
+
+.project-slider-wrapper {
+    position: relative;
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.project-slider {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    overflow-x: auto;
+    scroll-snap-type: mandatory;
+    width: 100vw;
+}
 
 
 /* footer */
@@ -302,6 +319,16 @@ nav a:hover {
     min-width: 100vw;
     min-height: 10vh;
     background-color: black;
+}
+
+.links {
+    color: white;
+    align-content: center;
+    flex-direction: column;
+}
+
+.links table tr td{
+    padding-right: 10vw;
 }
 
 
