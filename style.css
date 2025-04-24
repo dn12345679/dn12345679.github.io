@@ -231,23 +231,28 @@ nav a:hover {
 
 /* main page */
 #intro-section {
-    min-height: 104.5vh;
+    min-height: 100vh;
+    min-width: 100vw;
+    z-index: 0;
+
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+
+}
+
+#intro-section-title-text {
+    position:fixed;
+    align-self: center;
     
     z-index: 0;
-    align-content: center;
-    justify-content: center;
-}
-
-#intro-section header div p {
     text-align: center;
-    padding: 20px;
-    max-width: 50vw;
-
     font-size: 200px;
-    animation: 
-        typing 3.5s steps(40, end),
-        blink-caret .75s step-end infinite;
 }
+
+
 
 /* these are the particles */
 .parallax-wrap span{
@@ -256,16 +261,6 @@ nav a:hover {
     width: 20px;
     border-radius: 100%;
     background: red;
-}
-
-#intro-section-title-text {
-    position:sticky;
-    z-index: 1;
-}
-
-.parallax-wrap {
-    border-width: 20px;
-    border-style: solid;
 }
 
 /* section title + content sibling  */
@@ -282,12 +277,23 @@ nav a:hover {
     
     display: flex;
     flex-direction: column;
+
+    background-color: cornsilk;
+    z-index: 1
 }
 
-.projects {
+#projects-page {
     background-color: pink;
-    height: 100vh;
+    height: 105vh;
+    min-width: 100vw;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    z-index: inherit;
 }
+
+/* body */
 
 
 /* footer */

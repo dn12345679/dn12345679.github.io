@@ -137,9 +137,6 @@
     function changeBG(event) {
         this.querySelector('body');
         ( () => {
-            var intro = document.getElementById('intro-section');  
-            const scroll = window.scrollY;
-            body.style.backgroundColor = scroll > 100 ? "cornsilk" : "white";
         })();
     }
 
@@ -178,6 +175,7 @@
     </nav>
     <div id="body">
         <div class="pages">
+            
             <section id="intro-section" class="section-page">
                 <header>
                     <div>
@@ -186,8 +184,8 @@
                         </p>
                     </div>
                 </header>
-                <div class="parallax-wrap"></div>
             </section>
+            <div class="parallax-wrap"></div>
             
             <section class="content-body">
                 <section id="aboutme-page" class="section-page">
