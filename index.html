@@ -121,7 +121,7 @@
     }
 0    
     // https://dev.to/clementgaudiniere/create-a-parallax-effect-when-the-mouse-moves-3km0
-    document.addEventListener("mousemove", parallax); // paralax
+    
     function parallax(event) {
         this.querySelectorAll('.parallax-wrap span').forEach((shift) => {
             const position = shift.getAttribute("value");
@@ -131,13 +131,15 @@
         });
     }
 
+
+     
     document.addEventListener("scroll", changeBG);
     function changeBG(event) {
         this.querySelector('body');
         ( () => {
+            var intro = document.getElementById('intro-section');  
             const scroll = window.scrollY;
-            const secondpage = document.querySelector('.about-me').getBoundingClientRect().top;
-            body.style.backgroundColor = scroll > secondpage ? "cornsilk" : "white";
+            body.style.backgroundColor = scroll > 100 ? "cornsilk" : "white";
         })();
     }
 
@@ -146,6 +148,8 @@
         addParticles(50);
         resizeCanvas();
         timedSplats()
+        
+        document.addEventListener("mousemove", parallax); // paralax
     };
 </script>
 
@@ -167,17 +171,17 @@
         <ul class="header">
             <li><a href="#">Home</a></li>
             <li><a class="limit-screen" href="#aboutme-page">About Me</a></li>
-            <li><a class="limit-screen" href="#">Projects</a></li>
+            <li><a class="limit-screen" href="#projects-page">Projects</a></li>
             <li><a class="limit-screen" href="#">Links</a></li>
             <li><a onclick="toggleSidebar()" href ="#"><img id="menu_icon" src="Images/Icons/menu_icon.svg"></a></li>
         </ul>
     </nav>
     <div id="body">
-        <div>
-            <section class="intro-section">
+        <div class="pages">
+            <section id="intro-section" class="section-page">
                 <header>
                     <div>
-                        <p class="intro-section-title-text">
+                        <p id="intro-section-title-text">
                             Hey! I'm Dylan!
                         </p>
                     </div>
@@ -186,8 +190,8 @@
             </section>
             
             <section class="content-body">
-                <section  class="about-me">
-                    <header id="aboutme-page" class="section-title">
+                <section id="aboutme-page" class="section-page">
+                    <header class="section-title">
                         <div class="section-title-label">
                             <img style="width:3vw; height:3vh;" src="Images\Icons\waving-hand.svg"/>
                             <p>About Me</p>
@@ -209,7 +213,7 @@
                     </div>
                 </section>
     
-                <section class="projects">
+                <section id="projects-page" class="section-page">
                     <header class="section-title">
                         <div class="section-title-label">
                             <img style="width:2vw;" src="Images\Icons\projects-icon.png"/>
