@@ -4,6 +4,7 @@ html {
 }
 
 
+
 /* intro */
 .paintCanvas {
     min-height: 100vh;
@@ -200,7 +201,8 @@ nav a:hover {
 
 .section-content-text {
     margin: 5vh;
-    width: 25%;
+    max-width:50%;
+    max-height: 100%;
     background-color: white;
 
     border-radius: 10px;
@@ -212,7 +214,7 @@ nav a:hover {
 
 .section-content-text p {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 30px;
+    font-size: 25px;
 
 }
 
@@ -253,6 +255,11 @@ nav a:hover {
     z-index: 1;
 }
 
+.parallax-wrap {
+    border-width: 20px;
+    border-style: solid;
+}
+
 /* about me  */
 
 .about-me {
@@ -269,14 +276,17 @@ nav a:hover {
     flex-direction: column;
 }
 
+.projects {
+    background-color: pink;
+    height: 100vh;
+}
 
 
 /* footer */
 
 .bottom {
-    margin-top: 200px;
     min-width: 100vw;
-    min-height: 300px;
+    min-height: 10vh;
     background-color: black;
 }
 

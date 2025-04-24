@@ -119,7 +119,7 @@
             pwrap.appendChild(p);
         }
     }
-    
+0    
     // https://dev.to/clementgaudiniere/create-a-parallax-effect-when-the-mouse-moves-3km0
     document.addEventListener("mousemove", parallax); // paralax
     function parallax(event) {
@@ -136,7 +136,8 @@
         this.querySelector('body');
         ( () => {
             const scroll = window.scrollY;
-            body.style.backgroundColor = scroll > 100 ? "cornsilk" : "white";
+            const secondpage = document.querySelector('.about-me').getBoundingClientRect().top;
+            body.style.backgroundColor = scroll > secondpage ? "cornsilk" : "white";
         })();
     }
 
@@ -218,12 +219,6 @@
                     <div class="section-content">
                         <div class="section-content-text">
                             <p>
-                                Hello, my name is Dylan Nguyen. <br>
-                                I am a student at University of Washington, Seattle and studied ACMS: Data Science and Statistics
-                                with an interest in applying topics in mathematics to real-world fields. During my time at 
-                                as an undergraduate, I have developed an interest and passion for linguistics (computational linguistics), 
-                                applied mathematics, and game development. <br>
-                                Attached below is my general resume.
                                 
                             </p>
                             
