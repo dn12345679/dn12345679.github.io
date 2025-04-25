@@ -104,6 +104,17 @@ nav a:hover {
     position: fixed;
     background-color: white;
     box-shadow: 3px 3px 5px rgba(1, 1, 1, 0.3);
+    transition: 1.0s cubic-bezier(.17,.67,.37,.9);
+    width: 100%;
+
+    overflow: hidden;
+}
+.header.shrink {
+    position: fixed;
+    right: 0;   
+    transition: 1.0s cubic-bezier(.17,.67,.37,.9);
+    width: 7vh;
+    box-shadow: -3px 0px 3px rgba(0, 0, 0, 0.3) ;
 }
 
 
@@ -123,7 +134,7 @@ nav a:hover {
     height: 100vh;
     width: 20vw;
     z-index: 99;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.6);
     box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
 
@@ -239,7 +250,7 @@ nav a:hover {
     display: flex;
     flex-direction: column;
 
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.2);
 
 }
 
@@ -283,21 +294,23 @@ nav a:hover {
 }
 
 #projects-page {
-    background-color: pink;
-    height: 105vh;
+    background-color: white;
+    min-height: 105vh;
     min-width: 100vw;
     align-items: flex-start;
     justify-content: center;
     display: flex;
     flex-direction: column;
     z-index: inherit;
+
 }
 
 /* slider */
 
 .project-slider-wrapper {
     position: relative;
-    scale: 0.9;
+    scale: 0.8;
+    overflow-y: none;
 }
 
 .project-slider {
@@ -307,15 +320,31 @@ nav a:hover {
 
     overflow-x: hidden;
     scroll-snap-type: x mandatory;
+
+
     scroll-behavior: smooth;
-    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    box-shadow: -1.5rem 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
     border-radius: 0.5rem;
     width: 100vw;
 }
 
-.project-slider img{
-    flex: 1 0 100%;
+.slide {
+    position: relative;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
     scroll-snap-align: start;
+
+    height: 100%;
+    min-width: 100%;
+    flex: 1 0 100%;
+}
+
+.project-slider div img{
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -342,6 +371,46 @@ nav a:hover {
     transition: opacity ease 250ms;
 }
 
+/* to offset the vertical a bit */
+.slide-anchor {
+    scroll-margin-top: 5em;
+}
+
+/* slides text */
+.slide-text {
+    font-size: 35px;
+}
+
+.slide-content {
+    padding: 20px;
+    position: absolute;
+    width: 25%;
+    font-size: 35px;
+    background-color: rgba(255, 255, 255, 0.85);
+    align-content: center;
+
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    min-height: 100%;
+    text-align: center;
+}
+
+#slide-content-1 {
+    right: 10%;
+}
+#slide-content-2 {
+    left: 10%;
+}
+#slide-content-3 {
+    left: 0;
+}
+
+.download-pdf {
+    scale: 200%;
+}
+
+
 
 /* footer */
 
@@ -349,17 +418,28 @@ nav a:hover {
     min-width: 100vw;
     min-height: 10vh;
     background-color: black;
+    position: absolute;
 }
 
 .links {
-    color: white;
-    align-content: center;
-    flex-direction: column;
+
+   
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: 3em;
+
+}
+.links li a{
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-decoration: none;
 }
 
-.links table tr td{
-    padding-right: 10vw;
-}
+
 
 
 

@@ -16,6 +16,12 @@
 
         sidebar.classList.toggle('open'); // trigger animation
     }
+
+    function disableSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.remove('open');
+    }
+
     // IMPORTANT: resize the "canvas" for the splat effect
     function resizeCanvas() {
         const canvas = document.querySelector('.paintCanvas');
@@ -131,15 +137,14 @@
         });
     }
 
-
-     
-    document.addEventListener("scroll", changeBG);
-    function changeBG(event) {
-        this.querySelector('body');
-        ( () => {
-        })();
-    }
-
+    window.addEventListener("scroll", function () {
+        const header = document.querySelector(".header");
+        if (window.scrollY > 100) {
+            header.classList.add("shrink");
+        } else {
+            header.classList.remove("shrink");
+        }
+    });
 
     window.onload = function() {
         addParticles(50);
@@ -148,6 +153,7 @@
         
         document.addEventListener("mousemove", parallax); // paralax
     };
+
 </script>
 
 <body>
@@ -159,18 +165,18 @@
     <nav id="navigation">
         <ul class="sidebar">
             
-            <li><a onclick="toggleSidebar()" href="#"><img id="menu_icon" src="Images/Icons/menu_icon.svg"></a></li>
-            <li><a href="#">Home</a></li>
+            <li><a onclick="toggleSidebar()"><img id="menu_icon" src="Images/Icons/menu_icon.svg"></a></li>
+            <li><a onclick="disableSidebar()" href="#">Home</a></li>
             <li><a href="#aboutme-page">About Me</a></li>
             <li><a href="#projects-page">Projects</a></li>
             <li><a href="#links-page">Links</a></li>
         </ul>
         <ul class="header">
-            <li><a href="#">Home</a></li>
+            <li><a onclick="disableSidebar()" href="#">Home</a></li>
             <li><a class="limit-screen" href="#aboutme-page">About Me</a></li>
             <li><a class="limit-screen" href="#projects-page">Projects</a></li>
             <li><a class="limit-screen" href="#links-page">Links</a></li>
-            <li><a onclick="toggleSidebar()" href ="#"><img id="menu_icon" src="Images/Icons/menu_icon.svg"></a></li>
+            <li><a onclick="toggleSidebar()"><img id="menu_icon" src="Images/Icons/menu_icon.svg"></a></li>
         </ul>
     </nav>
     <div id="body">
@@ -204,9 +210,7 @@
                                 as an undergraduate, I have developed an interest and passion for linguistics (computational linguistics), 
                                 applied mathematics, and game development. <br>
                                 Attached below is my general resume.
-                                
                             </p>
-                            
                         </div>
                     </div>
                 </section>
@@ -214,37 +218,88 @@
                 <section id="projects-page" class="section-page">    
                     <div class="project-slider-wrapper">
                         <div class="project-slider">
-                            <img id="slide-1" src="Images\Projects\ChessAI.png" alt="Virtual Chess board"/>
-                            <img id="slide-2" src="Images\Projects\efluid1.png" alt="Fluid-like pixel movements"/>
+
+                            <div class="slide">
+                                <div class="slide-content" id="slide-content-1">
+                                    <p class="slide-text">
+                                        Personal favorite project of mine. I learned how decision trees and algorithms such as 
+                                        the Alpha-Beta minmax can make decisions based off of heuristics and select the best move in Chess.
+                                        This project was how I first picked up Chess. Written in C# using the Godot Engine
+                                    </p>
+                                    <a href="https://github.com/dn12345679/ChessBot" target="_blank">
+                                        View source
+                                    </a>
+                                </div>
+                                
+                                <img id="slide-1" class="slide-anchor" src="Images\Projects\ChessAI.png" alt="Virtual Chess board">
+                            </div>
+                            <div class="slide">
+                                <div class="slide-content" id="slide-content-2">
+                                    <p class="slide-text">
+                                        Computational fluid dynamics. Modeling fluids using the Navier-Stokes equations. A JavaScript implementation
+                                        of Jos Stam's study on fluid dynamics (2003).
+
+                                    </p>
+                                    <a href="Downloadable\navier-stokes.pdf" download="navier-stokes-notes">
+                                        <button class="download-pdf">
+                                            LaTeX Writeup
+                                        </button>
+                                    </a>
+                                    <a href="https://github.com/dn12345679/EulerianFluidSim" target="_blank">
+                                        View source
+                                    </a>
+                                </div>
+                                <img id="slide-2" class="slide-anchor" src="Images\Projects\efluid1.png" alt="Fluid-like pixel movements"/>
+                            </div>
+                            <div class="slide">
+                                <div class="slide-content" id="slide-content-3">
+                                    <p class="slide-text">
+                                        I enjoy making personal projects; and among those, making small games for game jams has been 
+                                        one of my favorite pasttimes. Here I dispaly a collage of my favorite few. More can be viewed
+                                        in my itch.io site link!
+                                    </p>
+                                    <a href="https://nocd.itch.io/" target="_blank">
+                                        View my games!
+                                    </a>
+                                </div>
+                                <img id="slide-3" class="slide-anchor" src="Images\Projects\my_games.png" alt="Collage of my best games"/>
+                            </div>
                         </div>
                         <div class="project-slider-nav">
-                            <a href="#slide-1"></a>
-                            <a href="#slide-2"></a>
+                            <a href="#slide-1" ></a>
+                            <a href="#slide-2" ></a>
+                            <a href="#slide-3"></a>
                         </div>
-                    </div>                      
+                    </div>                       
                 </section>
             </section>
         </div>
     </div>
-    <footer id="links-page" class="bottom">
-        <div class="links">
-            <table>
-                <tr>
-                    <td>
-                        Github
-                    </td>
-                    <td>
-                        Itch.io
-                    </td>
-                    <td>
-                        Email
-                    </td>
-                    <td>
-                        LinkedIn
-                    </td>
-                </tr>
 
-            </table>
+    <footer id="links-page" class="bottom">
+        <div class="links-wrapper">
+            <ul class="links">
+                <li>
+                    <a href="https://github.com/dn12345679" target="_blank">
+                        Github
+                    </a>
+                </li>
+                <li>
+                    <a href="https://nocd.itch.io/" target="_blank">
+                        Itch.io
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:dylngu002@gmail.com" target="_blank">
+                        Email
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/dylan-nguyen-91b003269/" target="_blank">
+                        LinkedIn
+                    </a>
+                </li>
+            </ul>
         </div>
     </footer>
     
