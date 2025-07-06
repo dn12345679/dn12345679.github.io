@@ -44,7 +44,7 @@
 
             splat.style.left = sizex + 'px';
             splat.style.top = sizey + 'px';
-            splat.style.backgroundColor = getRandomColor();
+            splat.style.backgroundColor = '#000000';
             /* sprinkle in large dots */
             if (sp % 10 == 0) {
                 splat.style.width = '10vw'; 
@@ -154,6 +154,34 @@
         document.addEventListener("mousemove", parallax); // paralax
     };
 
+    let currpage = 1;
+    function change_page(increment, set) {
+        if (increment < 0) {
+            if (currpage == 1) {
+                currpage = 3
+            }
+            else{
+                currpage = Math.max(currpage + increment, 1);
+            }
+            
+        }
+        if (increment > 0) {
+            
+            if (currpage == 3) {
+                currpage = 1
+            }
+            else{
+                currpage = Math.min(currpage + increment, 3);
+            }
+            
+            
+        }
+        if (set != 0) {
+            currpage = set
+        }
+        document.getElementById(`slide-${currpage}`).scrollIntoView({ behavior: 'smooth' });
+    }
+
 </script>
 
 <body>
@@ -204,25 +232,37 @@
                     <div class="section-content">
                         <div class="section-content-text">
                             <p>
-                                Hello, my name is Dylan Nguyen. <br>
-                                I am a student at University of Washington, Seattle and studied ACMS: Data Science and Statistics
+                                Hello, my name is Dylan <br>
+                                I am a student at University of Washington, Seattle and studying ACMS: Data Science and Statistics
                                 with an interest in applying topics in mathematics to real-world fields. During my time at 
                                 as an undergraduate, I have developed an interest and passion for linguistics (computational linguistics), 
                                 applied mathematics, and game development. <br>
                                 Some of my previous and ongoing hobbies include building and selling PCs, and developing programs to visualize 
                                 and model mathematical problems. <br><br>
                                 
-                                <a target="_blank" href="https://docs.google.com/document/d/1mbJgm0LrU45oj8NfCc72HjL26J3t1s5duSc23HowpTs/edit?usp=sharing">Link to my Resume </a>
+                                <a class='link-text' target="_blank" href="https://docs.google.com/document/d/1mbJgm0LrU45oj8NfCc72HjL26J3t1s5duSc23HowpTs/edit?usp=sharing">Link to my Resume </a>
                             </p>
                         </div>
                         <img class="profilepic" src="Images\Icons\profilepic.jpg"/>
                     </div>
                 </section>
-    
-                <section id="projects-page" class="section-page">    
-                    <div class="project-slider-wrapper">
-                        <div class="project-slider">
+                
 
+                <section id="projects-page" class="section-page">   
+                    <header class="section-title">
+                        <div class="section-title-label">
+                            <img style="height:3vh;" src="Images\Icons\projects-icon.png"/>
+                            <p>Projects</p>
+                        </div>
+                    </header> 
+                    <div class="project-slider-wrapper">
+                        <div class="slider-page-changer"
+                            onclick="change_page(-1, 0)"
+                        ><img 
+                        src="Images\Icons\arrow.png "></div>
+
+                        <div class="project-slider">
+                           
                             <div class="slide">
                                 <div class="slide-content" id="slide-content-1">
                                     <p class="slide-text">
@@ -230,7 +270,7 @@
                                         the Alpha-Beta minmax can make decisions based off of heuristics and select the best move in Chess.
                                         This project was how I first picked up Chess. Written in C# using the Godot Engine
                                     </p>
-                                    <a href="https://github.com/dn12345679/ChessBot" target="_blank">
+                                    <a class = 'link-text' href="https://github.com/dn12345679/ChessBot" target="_blank">
                                         View source
                                     </a>
                                 </div>
@@ -249,7 +289,7 @@
                                             LaTeX Writeup
                                         </button>
                                     </a>
-                                    <a href="https://github.com/dn12345679/EulerianFluidSim" target="_blank">
+                                    <a class='link-text'href="https://github.com/dn12345679/EulerianFluidSim" target="_blank">
                                         View source
                                     </a>
                                 </div>
@@ -263,17 +303,26 @@
                                         in my itch.io site link!
 
                                     </p>
-                                    <a href="https://nocd.itch.io/" target="_blank">
+                                    <a class='link-text'href="https://nocd.itch.io/" target="_blank">
                                         View my games!
                                     </a>
                                 </div>
                                 <img id="slide-3" class="slide-anchor" src="Images\Projects\my_games.png" alt="Collage of my best games"/>
                             </div>
                         </div>
+
+                        <div class="slider-page-changer"
+                            onclick="change_page(1, 0)"
+                        ><img
+                        style="  
+                        -webkit-transform: scaleX(-1);
+                        transform: scaleX(-1);"  
+                        src="Images\Icons\arrow.png "></div>
+                          
                         <div class="project-slider-nav">
-                            <a href="#slide-1" ></a>
-                            <a href="#slide-2" ></a>
-                            <a href="#slide-3"></a>
+                            <a href="#slide-1" onclick="change_page(0, 1)"></a>
+                            <a href="#slide-2" onclick="change_page(0, 2)"></a>
+                            <a href="#slide-3" onclick="change_page(0, 3)"></a>
                         </div>
 
                     </div>                       

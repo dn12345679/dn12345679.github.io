@@ -46,6 +46,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    user-select: none;
 
     /* font */
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -202,7 +203,7 @@ nav a:hover {
     display: flex;
     padding: 10px;
     z-index: 0;
-    margin-top: 25vh; /* necessary for centering on pages, see .section-content 'height' */
+    
     
     width: fit-content;
 
@@ -287,6 +288,11 @@ nav a:hover {
 
 }
 
+.link-text {
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+}
+
 #intro-section-title-text {
     position:fixed;
     align-self: center;
@@ -324,33 +330,65 @@ nav a:hover {
     flex-direction: column;
 
     background-color: cornsilk;
-    z-index: 1
+    z-index: 3;
+}
+
+#aboutme-page {
+    box-shadow: 1.5rem -1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
 }
 
 #projects-page {
     background-color: white;
     min-height: 105vh;
     min-width: 100vw;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
     z-index: inherit;
+    box-shadow: 1.5rem -1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
 
 }
 
 /* slider */
 
+.slider-page-changer {
+
+    width: 10dvmin;
+    height: 30dvmax;
+    background: linear-gradient(#c4c4c4, #d7d8e3);
+    box-shadow: 1.5rem 1.5rem 3rem 0em hsla(0, 0%, 0%, 0.25);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider-page-changer img {
+    height: 6dvmin;
+}
+
 .project-slider-wrapper {
     position: relative;
-    scale: 0.8;
+    width: 90dvmax;
     overflow-y: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .project-slider {
     display: flex;
     flex-direction: row;
-    aspect-ratio: 16/9;
+
+
+ 
 
     overflow-x: hidden;
     scroll-snap-type: x mandatory;
@@ -396,6 +434,7 @@ nav a:hover {
 }
 
 .project-slider-nav a {
+    
     width: 0.5rem;
     height: 0.5rem;
     border-style: solid;
