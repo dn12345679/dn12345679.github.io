@@ -89,6 +89,8 @@ nav a {
     display: flex;
     align-items: center;
     color: black;
+    font-size: 2rem;
+    letter-spacing: 0.3rem;
 
     transition: 0.5s; /* smooth highlight */
 }
@@ -110,11 +112,17 @@ nav a:hover {
     overflow: hidden;
 }
 .header.shrink {
+    display: flex;
     position: fixed;
     right: 0;   
     transition: 1.0s cubic-bezier(.17,.67,.37,.9);
-    width: 7vh;
+    width: fit-content;
+    border-radius: 10px;
+    background-color: #fffabe;
     box-shadow: -3px 0px 3px rgba(0, 0, 0, 0.3) ;
+}
+.header.shrink.open {
+    display: none;
 }
 
 
@@ -149,9 +157,19 @@ nav a:hover {
     transition: 1.0s cubic-bezier(.17,.67,.37,.9);
 }
 
+.sidebar-button {
+    display: none;
+}
+
+
 
 @media(max-width: 800px) {
-
+    .sidebar-button {
+        display: flex;
+    } 
+    .limit-screen {
+        display: none;
+    }
 }
 /* rescale */
 .sidebar li {
@@ -206,6 +224,9 @@ nav a:hover {
 }
 
 .section-content {
+    display: flex;
+    flex-direction: row;
+
     background-color: tan;
     border-style: solid;
 
@@ -215,13 +236,22 @@ nav a:hover {
 
     height: 50vh;
     width: 70vw;
+
+    box-shadow: 0 1dvmin 8px 0 rgba(0, 0, 0, 0.4);
+
+    justify-content: center;
     
+}
+
+.profilepic {
+    margin-top: 6vh;
+    box-shadow: 0 1dvmin 8px 0 rgba(0, 0, 0, 0.4);
 }
 
 .section-content-text {
     margin: 5vh;
     max-width:50%;
-    max-height: 100%;
+    height: 45vh;
     background-color: white;
 
     border-radius: 10px;
@@ -229,11 +259,14 @@ nav a:hover {
     border-style: solid;
     border-width: 3px;
     padding: 10px;
+
+    box-shadow: 0 1dvmin 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .section-content-text p {
+    margin: 3rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 25px;
+    font-size: 2rem;
 
 }
 
@@ -260,7 +293,8 @@ nav a:hover {
     
     z-index: 0;
     text-align: center;
-    font-size: 200px;
+    font-size: 20rem;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 
@@ -271,7 +305,7 @@ nav a:hover {
     height: 20px;
     width: 20px;
     border-radius: 100%;
-    background: red;
+    background: red; 
 }
 
 /* section title + content sibling  */
@@ -433,10 +467,13 @@ nav a:hover {
 
 }
 .links li a{
-    background-color: white;
+    background-color: black;
     padding: 15px;
     border-radius: 5px;
     text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    letter-spacing: 0.3rem;
 }
 
 
